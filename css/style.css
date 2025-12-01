@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+/* --------------------------------
+slider
+*/
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+}
+
+.nav-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
