@@ -8,23 +8,23 @@ html {
 slider
 */
 
-.slider-wrapper {
+.slider {
     position: relative;
     overflow: hidden;
     height: 80vh;
 }
 
-.nav-button {
+.nav-btn {
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.prev-button {
+.prev-btn {
     left: 10px;
 }
 
-.next-button {
+.next-btn {
     right: 10px;
 }

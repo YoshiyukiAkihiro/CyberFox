@@ -6,6 +6,17 @@ const sliderData = [
 ]
 
 const sliderContent = document.querySelector('.slider-content');
+const totalSlides = sliderData.length //　画像データの数
+const indicatorContainer = document.querySelector('.slider-indicators');
+
+
+function createIndicator() {
+    for(let i = 0; i < sliderData.length; i++) {
+        const button = document.createElement('button');
+        button.dataset.index = i;
+        indicatorContainer.appendChild('button');
+    }
+}
 
 // スライドを１つ戻す関数
 function showPrevSlide() {
@@ -33,9 +44,17 @@ funciton createSlides() {
 
     sliderData.forEach(data => {
         const listItem = document.createElement('li');
+        listItem.classList.add('slide');
 
-        
-    })
+        const image = document.createElement('img');
+        image.src = data.src;
+        image.alt = data.alt;
 
-    }
+        listItem.appendChild(image);
+        fragment.appendChild(listItem);
+    });
+
+    sliderContainer.appendChild(fragment);
+
+    createSlides();
 }
