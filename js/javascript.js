@@ -1,60 +1,55 @@
 //---------スライド-------------------------------------
 
-// スライドの画像一覧
-const sliderData = [
-    { src: 'images/slide1.jpg', alt:'' }
-]
-
-const sliderContent = document.querySelector('.slider-content');
-const totalSlides = sliderData.length //　画像データの数
+// DOM要素の取得
+const slides = document.querySelectorAll('.slide'); // HTMLの.slideを全部取得
 const indicatorContainer = document.querySelector('.slider-indicators');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
 
+let currentIndex = 0; // 現在表示しているスライドの番号
 
+// インジケーターを作成する関数
 function createIndicator() {
-    for(let i = 0; i < sliderData.length; i++) {
+    slides.forEach((_, index) => {
         const button = document.createElement('button');
-        button.dataset.index = i;
-        indicatorContainer.appendChild('button');
-    }
+        button.dataset.index = index;
+        // 最初のボタンだけアクティブにするなどの処理を入れると良い
+        button.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlider();
+        });
+        indicatorContainer.appendChild(button); // 'button'という文字列ではなく要素を追加
+    });
 }
 
-// スライドを１つ戻す関数
-function showPrevSlide() {
-    if (currentIndex === 0) {
-        currentIndex = totalSlide - 1 
-    } else {
-        currentIndex--;
-    }
-    updateSliderPosition();
-}
-
-// スランドを１つ進める関数
-function showNextSlide() {
-    if (currentIndex === totalSlide - 1) {
-        currentIndex = 0;
-    } else {
-        currentIndex++;
-    }
-    updateSliderPosition();
-}
-
-// スライドのDOMを生成して、HTMLに挿入
-funciton createSlides() {
-    const fragment = document.createDocumentFragment();
-
-    sliderData.forEach(data => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('slide');
-
-        const image = document.createElement('img');
-        image.src = data.src;
-        image.alt = data.alt;
-
-        listItem.appendChild(image);
-        fragment.appendChild(listItem);
+// スライドの表示を更新する関数（DOM生成ではなく、クラスの付け替え）
+function updateSlider() {
+    // すべてのスライドから active を外す
+    slides.forEach(slide => {
+        slide.classList.remove('active');
     });
 
-    sliderContainer.appendChild(fragment);
-
-    createSlides();
+    // 現在の slide に active をつける
+    slides[currentIndex].classList.add('active');
 }
+
+// 次へボタン
+nextBtn.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0;
+    }
+    updateSlider();
+});
+
+// 前へボタン
+prevBtn.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+    }
+    updateSlider();
+});
+
+// 初期化実行
+createIndicator();
