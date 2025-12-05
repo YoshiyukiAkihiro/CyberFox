@@ -5,7 +5,7 @@ const slides = document.querySelectorAll('.slide'); // HTMLの.slideを全部取
 const indicatorContainer = document.querySelector('.slider-indicators'); // スライドのインジケーター
 const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
-console.log(slides);
+// console.log(slides);
 
 let currentIndex = 0; // 現在表示しているスライドの番号
 
