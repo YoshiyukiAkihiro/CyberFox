@@ -2,7 +2,12 @@
 
 html {
     font-size: 100%;
+}
+
+body {
+    font-size: 0.875rem;
     font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
 }
 
 li {
@@ -22,6 +27,19 @@ img {
     max-width: 1200px;
     margin: 0 auto;
 
+}
+
+.social-link {
+    display: flex;
+}
+
+.social-link img {
+    width: 20px;
+}
+
+.social-link a {
+    display: block;
+    margin: 0 10px;
 }
 
 /* ------------------------------------------------------------------
@@ -80,21 +98,21 @@ img {
 
 /* SNSリンク */
 
-.social-link {
-    display: flex;
+#header .social-link {
+    /* display: flex; */
     align-items: center;
     /* height: 100%; */
     margin-left: auto;
     margin-right: 20px;
 }
 
-.social-link a {
-    display: block;
-    margin: 0 10px;
+#header .social-link a {
+    /* display: block; */
+    /* margin: 0 10px; */
 }
 
-.social-link img {
-    width: 20px;
+#header .social-link img {
+    /* width: 20px; */
 }
 
 /* ----------------------------------------------------------------------------
@@ -322,6 +340,8 @@ img {
 */
 
 #footer {
+    display: flex;
+    align-items: center;
     height: 320px;
     background-color: rgb(218, 218, 218);
     padding: 50px 0;
@@ -329,16 +349,18 @@ img {
 
 #footer .inner {
     display: flex;
-}
-
-.footer-logo img {
-    max-width: 100px;
+    /* align-items: center; */
 }
 
 #footer .logo-link-wrapper {
     display: flex;
+    align-items: center;
     width: 60%;
 } 
+
+.footer-logo img {
+    max-width: 100px;
+}
 
 .footer-links {
     display: flex;
@@ -348,13 +370,18 @@ img {
 
 .footer-links li {
     width: 50%;
+    margin-bottom: 10px;
 }
 
 /* ソーシャル、コピーライト */
 
 .social-copy-wrapper {
     width: 40%;
-    margin-left: auto;
+    display: flex;
+    /* margin-left: auto; */
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
 }
 
 
@@ -366,12 +393,48 @@ img {
 
 @media screen and (max-width: 768px) {
 
+    /* ---------------------------------------------------------------------------
+    ヘッダー
+    */
+
+    /* ハンバーガーメニュー */
+
+    #header {
+        /* justify-content: center; */
+    }
+
+    #header .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    #header .hamburger span {
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        display: block;
+    }
+
+    #header .logo {
+        border-right: none;
+        position: absolute;
+        left: 0;
+    }
+
+    #header nav,
+    #header .social-link {
+        display: none;
+    }
+
 
     /* ---------------------------------------------------------------------------
     ニュース
     */
     .news-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .news-item.large {
