@@ -26,7 +26,11 @@ img {
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
+}
 
+.team-logo {
+    width: 200px;
+    display: block;
 }
 
 .social-link {
@@ -43,6 +47,62 @@ img {
 }
 
 /* ------------------------------------------------------------------
+ハンバーガーメニュー
+*/
+
+#slide-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 9999;
+    font-size: 18px;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    display: none;
+}
+
+#slide-menu.active {
+    transform: translateX(0%);
+    transition: transform 0.4s ease;
+}
+
+#slide-menu .slide-contents {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#slide-menu .slide-contents li {
+    /* padding: 5px 0; */
+    border-bottom: 1px solid grey;
+}
+
+#slide-menu .slide-contents li a {
+    display: flex;
+    align-items: center;
+    /* min-height: 60px; */
+    padding: 10px 20px;
+}
+
+/* #slide-menu .slide-contents li::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: blue;
+    right: 10%;
+} */
+
+#slide-menu .slide-contents li .team-logo {
+    width: auto;
+    max-height: 40px;
+}
+
+/* ------------------------------------------------------------------
 ヘッダー
 */
 #header {
@@ -55,6 +115,7 @@ img {
     z-index: 1000;
     background-color: white;
     border-bottom: 1px solid;
+    /* align-items: center; */
 }
 
 .logo {
@@ -74,11 +135,6 @@ img {
     display: block;
 }
 
-.site-logo img {
-    width: 200px;
-    display: block;
-}
-
 /* ナビ */
 
 #header .nav {
@@ -87,13 +143,14 @@ img {
     /* height: 100%; */
 }
 
-#header ul {
+#header nav ul {
     display: flex;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
-#header li {
-    padding: 0 20px;
+#header nav ul li {
+    padding: 15px;
+    white-space: nowrap;
 }
 
 /* SNSリンク */
@@ -120,23 +177,26 @@ img {
 */
 
 #slider {
-    height: calc(100vh - 80px);
+    /* height: calc(100vh - 80px); */
     margin-top: 80px;
+    position: relative;         /* インジケーター、矢印用 */
 }
 
 .slider-content {
-    position: relative;
+    /* position: relative; */
+    display: grid;
     width: 100%;
     height: 100%;
-    list-style: none;
 }
 
 .slide {
-    position: absolute;
+    grid-column: 1;
+    grid-row: 1;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     opacity: 0;
     transition: opacity 1.5s ease;
 }
@@ -148,8 +208,10 @@ img {
 
 .slide img {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     object-fit: cover;
+    object-position: top center;
+    vertical-align: bottom;
 }
 
 /* 左右矢印 */
@@ -393,35 +455,54 @@ img {
 
 @media screen and (max-width: 768px) {
 
-    /* ---------------------------------------------------------------------------
-    ヘッダー
-    */
-
-    /* ハンバーガーメニュー */
-
-    #header {
-        /* justify-content: center; */
+    .wrapper {
+        margin: 0 20px;
     }
 
-    #header .hamburger {
+    /* ---------------------------------------------------------------------------
+    スライドメニュー
+    */
+
+    #slide-menu {
+        display: block;
+    }
+
+    /* メニューボタン */
+    .menu-btn {
+        height: 80px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
         padding: 0 20px;
+        transition: transform 0.4s ease;
     }
 
-    #header .hamburger span {
+    .menu-btn.active {
+        transform: translateX(300px);
+        background-color: rgb(201, 201, 201, 0.5);
+    }
+
+    .menu-btn span {
         width: 30px;
         height: 2px;
         background-color: black;
         display: block;
     }
 
+    /* ---------------------------------------------------------------------------
+    ヘッダー
+    */
+
     #header .logo {
         border-right: none;
         position: absolute;
-        left: 0;
+        left: 50%;
+        transform: translate(-50%);
     }
 
     #header nav,
@@ -438,6 +519,14 @@ img {
     }
 
     .news-item.large {
-        grid-column: span 1;
+        grid-column: span 2;
     }
 }
+
+    /* ---------------------------------------------------------------------------
+    ピックアップ
+    */
+
+    .pickup-list {
+        grid-template-columns: repeat(2, 1fr);
+    }

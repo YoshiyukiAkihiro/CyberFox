@@ -57,3 +57,18 @@ createIndicator();
 
 //---------ハンバーガーメニュー------------------------------------------------------------
 
+// ハンバーガーメニューとボタンを取得
+const slideMenu = document.getElementById('slide-menu');
+const menuBtn = document.getElementById('menu-btn');
+
+// イベントリスナー(クリックされた時、クラスを付けたり、消したりする)
+
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+
+    slideMenu.classList.toggle('active');
+});
+
+//ウィンドウのが768px以上になった時発火する
+
+//
