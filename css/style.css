@@ -76,26 +76,14 @@ img {
 }
 
 #slide-menu .slide-contents li {
-    /* padding: 5px 0; */
     border-bottom: 1px solid grey;
 }
 
 #slide-menu .slide-contents li a {
     display: flex;
     align-items: center;
-    /* min-height: 60px; */
     padding: 10px 20px;
 }
-
-/* #slide-menu .slide-contents li::after {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: blue;
-    right: 10%;
-} */
 
 #slide-menu .slide-contents li .team-logo {
     width: auto;
@@ -109,26 +97,19 @@ img {
     display: flex;
     width: 100%;
     position: fixed;
-    height: 80px;
+    min-height: 80px;
     top: 0;
     left: 0;
     z-index: 1000;
     background-color: white;
     border-bottom: 1px solid;
-    /* align-items: center; */
 }
 
-.logo {
-    width: 300px;
+#header .logo {
     border-right: 1px solid;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.site-logo {
-    /* margin: 0 auto; */
 }
 
 .site-logo a {
@@ -140,7 +121,6 @@ img {
 #header .nav {
     display: flex;
     align-items: center;
-    /* height: 100%; */
 }
 
 #header nav ul {
@@ -149,18 +129,18 @@ img {
 }
 
 #header nav ul li {
-    padding: 15px;
+    padding: 15px clamp(5px, 1.5vw, 20px);
+    font-size: clamp(12px, 1.2vw, 16px);
     white-space: nowrap;
 }
 
 /* SNSリンク */
 
 #header .social-link {
-    /* display: flex; */
     align-items: center;
-    /* height: 100%; */
     margin-left: auto;
     margin-right: 20px;
+    flex-shrink: 0;
 }
 
 #header .social-link a {
@@ -169,7 +149,7 @@ img {
 }
 
 #header .social-link img {
-    /* width: 20px; */
+    width: 20px;
 }
 
 /* ----------------------------------------------------------------------------
@@ -177,13 +157,11 @@ img {
 */
 
 #slider {
-    /* height: calc(100vh - 80px); */
     margin-top: 80px;
     position: relative;         /* インジケーター、矢印用 */
 }
 
 .slider-content {
-    /* position: relative; */
     display: grid;
     width: 100%;
     height: 100%;
@@ -192,11 +170,9 @@ img {
 .slide {
     grid-column: 1;
     grid-row: 1;
-    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
-    /* height: 100%; */
     opacity: 0;
     transition: opacity 1.5s ease;
 }
@@ -208,7 +184,6 @@ img {
 
 .slide img {
     width: 100%;
-    /* height: 100%; */
     object-fit: cover;
     object-position: top center;
     vertical-align: bottom;
@@ -403,30 +378,34 @@ img {
 
 #footer {
     display: flex;
-    align-items: center;
-    height: 320px;
     background-color: rgb(218, 218, 218);
-    padding: 50px 0;
+    padding: 50px;
 }
 
 #footer .inner {
-    display: flex;
-    /* align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
+/* フッター左側　（ロゴ、リンク） */
+
 #footer .logo-link-wrapper {
+    grid-column: 1;
     display: flex;
     align-items: center;
-    width: 60%;
 } 
 
+.footer-logo {
+    width: calc(100% / 3);
+}
+
 .footer-logo img {
-    max-width: 100px;
+    /* max-width: 100px; */
 }
 
 .footer-links {
     display: flex;
-    width: 40%;
+    width: calc(100% * 2 / 3);
     flex-wrap: wrap;
 }
 
@@ -435,22 +414,15 @@ img {
     margin-bottom: 10px;
 }
 
-/* ソーシャル、コピーライト */
+/* フッター右側（SNS、コピーライト） */
 
-.social-copy-wrapper {
-    width: 40%;
+#footer .social-copy-wrapper {
+    grid-column: 3;
     display: flex;
-    /* margin-left: auto; */
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
 }
-
-
-
-
-
-
 
 
 @media screen and (max-width: 768px) {
@@ -469,7 +441,7 @@ img {
 
     /* メニューボタン */
     .menu-btn {
-        height: 80px;
+        min-height: 80px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -479,12 +451,13 @@ img {
         left: 0;
         z-index: 10000;
         padding: 0 20px;
-        transition: transform 0.4s ease;
+        transition: all 0.4s ease;
     }
 
     .menu-btn.active {
         transform: translateX(300px);
-        background-color: rgb(201, 201, 201, 0.5);
+        background-color: rgb(201, 201, 201, 0.9);
+        transition: all 0.4s ease;
     }
 
     .menu-btn span {
@@ -494,15 +467,29 @@ img {
         display: block;
     }
 
+    .menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+        display: none;
+        /* opacity: 0; */
+    }
+
+    .menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
     /* ---------------------------------------------------------------------------
     ヘッダー
     */
 
+    #header {
+        justify-content: center;
+    }
+
     #header .logo {
         border-right: none;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%);
     }
 
     #header nav,
@@ -521,7 +508,6 @@ img {
     .news-item.large {
         grid-column: span 2;
     }
-}
 
     /* ---------------------------------------------------------------------------
     ピックアップ
@@ -530,3 +516,24 @@ img {
     .pickup-list {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* ----------------------------------------------------------------------------
+    フッター
+    */
+
+    #footer .inner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links li {
+        
+    }
+
+    /* ソーシャル、コピーライト */
+
+    #footer .social-copy-wrapper {
+        grid-column: 1;
+        align-items: center;
+        padding-top: 40px;
+    }
+}
