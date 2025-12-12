@@ -134,6 +134,16 @@ img {
     white-space: nowrap;
 }
 
+#header nav ul li a::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f08e";
+    /* display: inline-block; */
+    color: #333;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
 /* SNSリンク */
 
 #header .social-link {
@@ -465,19 +475,19 @@ img {
         height: 2px;
         background-color: black;
         display: block;
+        transition: all 0.4s ease;
     }
 
     .menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg);
+        transform: translateY(12px) rotate(45deg);
     }
 
     .menu-btn.active span:nth-child(2) {
-        display: none;
-        /* opacity: 0; */
+        opacity: 0;
     }
 
     .menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg);
+        transform: translateY(-12px) rotate(-45deg);
     }
 
     /* ---------------------------------------------------------------------------
