@@ -46,6 +46,16 @@ img {
     margin: 0 10px;
 }
 
+.with-icon::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f08e";
+    /* display: inline-block; */
+    color: #333;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
 /* ------------------------------------------------------------------
 ハンバーガーメニュー
 */
@@ -132,16 +142,6 @@ img {
     padding: 15px clamp(5px, 1.5vw, 20px);
     font-size: clamp(12px, 1.2vw, 16px);
     white-space: nowrap;
-}
-
-#header nav ul li a::after {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    content: "\f08e";
-    /* display: inline-block; */
-    color: #333;
-    margin-left: 5px;
-    font-size: 0.8em;
 }
 
 /* SNSリンク */
