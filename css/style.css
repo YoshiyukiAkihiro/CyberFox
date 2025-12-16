@@ -8,7 +8,8 @@
     --button-font-color: white;
     --button-bg-color: blue;
     /* スライドメニュー */
-    --slide-menu-bg-color: ;
+    --slide-menu-bg-rgb: 218, 218, 218;
+    --slide-menu-border-color: grey;
     --slide-menu-bar-color: black;
     /* スライダー */
     --slider-color: white;
@@ -103,7 +104,7 @@ img {
 }
 
 #slide-menu .slide-contents li {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--slide-menu-border-color);
 }
 
 #slide-menu .slide-contents li:hover {
@@ -239,8 +240,8 @@ img {
     display: block;
     width: 20px;
     height: 20px;
-    border-top: 2px solid white;
-    border-right: 2px solid white;
+    border-top: 2px solid var(--slider-color);
+    border-right: 2px solid var(--slider-color);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -488,7 +489,7 @@ img {
 
     .menu-btn.active {
         transform: translateX(300px);
-        background-color: rgb(ver(--footer-rgb),0.9);
+        background-color: rgb(var(--slide-menu-bg-rgb),0.9);
         transition: all 0.4s ease;
     }
 
