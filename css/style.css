@@ -411,7 +411,7 @@ img {
 
 #footer {
     display: flex;
-    background-color: rgb(ver(--footer-rgb));
+    background-color: rgb(var(--footer-rgb));
     padding: 50px;
 }
 
@@ -485,6 +485,10 @@ img {
         z-index: 10000;
         padding: 0 20px;
         transition: all 0.4s ease;
+    }
+
+    .menu-btn:hover {
+        cursor: pointer;
     }
 
     .menu-btn.active {
