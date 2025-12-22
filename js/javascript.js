@@ -1,3 +1,13 @@
+//---------ローディング画面-----------------------------------------------
+window.addEventListener("load", () => {
+    const loader = document.querySelector('#loading');
+    
+    setTimeout(() => {
+        loader.classList.add('loaded')
+    }, 800);
+});
+
+
 //---------スライド------------------------------------------------------------
 
 // DOM要素の取得
