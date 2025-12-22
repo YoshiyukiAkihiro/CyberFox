@@ -109,6 +109,7 @@ img {
     width: 100%;
     height: 100vh;
     background-color: var(--loading-bg);
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +138,7 @@ img {
 .loading-bar {
     width: 0%;
     height: 3px;
-    background-color: var(loading-bar);
+    background-color: var(--loading-bar);
     margin: 0 auto;
     animation: loading 3s ease forwards;
 }
