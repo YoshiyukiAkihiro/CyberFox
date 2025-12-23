@@ -7,6 +7,30 @@ window.addEventListener("load", () => {
     }, 800);
 });
 
+// --------スクロールフェードイン---------------------------------------------
+const options = {
+    root: null,
+    rootMargin: "0px 0px -20% 0px",
+    threshold: 0
+}
+
+const animateFade = (entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
+    });
+}
+
+const observer = new IntersectionObserver(animateFade, options);
+
+const fadeElements = document.querySelectorAll('.fade-up');
+
+fadeElements.forEach((el) => {
+    observer.observe(el);
+});
+
 
 //---------スライド------------------------------------------------------------
 

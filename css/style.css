@@ -8,8 +8,9 @@
     font-weight: 500;
     src: url('../fonts/teko-v23-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-    /* teko-700 - latin */
-    @font-face {
+
+/* teko-700 - latin */
+@font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Teko';
     font-style: normal;
@@ -35,6 +36,8 @@
     /* スライダー */
     --slider-color: white;
     --indicator-hover: rgb(197, 3, 197);
+    /* ニュース */
+    --list-border-color: grey;
     /* フッター */
     --footer-rgb: 218, 218, 218;
     --footer-hover: 0, 0, 0, 0.05;
@@ -99,6 +102,16 @@ img {
     font-size: 0.8em;
 }
 
+.section-title {
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.shade {
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
 /* -----------------------------------------------------------------
 ローディング画面
 */
@@ -152,6 +165,20 @@ img {
 @keyframes loading {
     0% { width: 0%; }
     100% { width: 100%; }
+}
+
+/* ----------------------------------------------------------------------------
+スクロールアニメーション用
+*/
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease; /* 0.8秒かけてふわっと */
+}
+
+.fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -442,11 +469,6 @@ img {
     border-bottom: 1px solid;
 }
 
-/* 見出し */
-#news .section-title {
-    margin-bottom: 20px;
-}
-
 /* ニュースリスト */
 .news-list {
     display: grid;
@@ -457,15 +479,31 @@ img {
 .news-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    border: 1px solid var(--list-border-color);
+}
+
+.news-item:hover {
+    cursor: pointer;
 }
 
 .news-item.large {
     grid-column: span 2;
 }
 
+.news-img-wrap {
+    overflow: hidden;
+    width: 100%;
+}
+
 .news-item img {
     width: 100%;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.news-item:hover img {
+    transform: scale(1.1);
 }
 
 /* more-news */
@@ -502,10 +540,6 @@ img {
 #pickup {
     margin-top: 80px;
     margin-bottom: 200px;
-}
-
-#pickup .section-title {
-    margin-bottom: 20px;
 }
 
 .pickup-list {
