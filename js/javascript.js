@@ -103,6 +103,21 @@ menuBtn.addEventListener('click', () => {
     slideMenu.classList.toggle('active');
 });
 
-//ウィンドウのが768px以上になった時発火する
+// テーマ切り替え機能
+const themeBtn = document.getElementById('theme-toggle');
+const body = document.body;
+const themeIcon = themeBtn.querySelector('i');
 
-//
+themeBtn.addEventListener('click', () => {
+    // bodyに .light-theme クラスをトグル（あれば消す、なければ付ける）
+    body.classList.toggle('light-theme');
+
+    // アイコンの切り替え（太陽 ⇔ 月）
+    if (body.classList.contains('light-theme')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon'); // ライトモードなら「月」アイコンを表示
+    } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun'); // ダークモードなら「太陽」アイコンを表示
+    }
+});
