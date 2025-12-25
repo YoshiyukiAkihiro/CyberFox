@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.forEach((_, index) => {
             const button = document.createElement('button');
             button.dataset.index = index;
+            button.classList.add('indicator-btn');
             button.setAttribute('aria-label',`スライド${index + 1}に切り替え`);
 
             button.addEventListener('click', () => {

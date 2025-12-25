@@ -454,20 +454,16 @@ body.light-theme .x-icon-img {
     gap: 40px;
 }
 
-.slider-indicators button {
+.slider-indicators .indicator-btn {
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background-color: var(--slider-color);
 }
 
-.slider-indicators button:hover {
+.slider-indicators .indicator-btn:hover {
     background-color: var(--indicator-hover);
     transition: background-color 0.4s ease;
-}
-
-.slider-indicators button .active {
-    
 }
 
 /* ------------------------------------------------------------------------
