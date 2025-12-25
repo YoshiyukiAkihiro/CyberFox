@@ -451,12 +451,12 @@ body.light-theme .x-icon-img {
     transform: translate(-50%);
     display: flex;
     z-index: 10;
-    gap: 30px;
+    gap: 40px;
 }
 
 .slider-indicators button {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: var(--slider-color);
 }
