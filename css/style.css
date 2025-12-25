@@ -77,7 +77,7 @@ body {
     font-size: 0.875rem;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 li {
@@ -122,7 +122,6 @@ img {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: "\f08e";
-    /* display: inline-block; */
     color: var(--icon-color);
     margin-left: 5px;
     font-size: 0.8em;
@@ -199,7 +198,7 @@ img {
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease; /* 0.8秒かけてふわっと */
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-up.active {
@@ -269,6 +268,7 @@ img {
     z-index: 1000;
     background-color: var(--background-color);
     border-bottom: 1px solid;
+    transition: all 0.4s ease;
 }
 
 #header .logo {
@@ -318,6 +318,7 @@ img {
     display: flex;
     align-items: center;
     margin-left: auto;
+    margin-right: 10px;
 }
 
 .theme-btn {
@@ -327,7 +328,7 @@ img {
     font-size: 1.2rem;
     color: var(--icon-color);
     padding: 0 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .theme-btn:hover {
@@ -357,7 +358,7 @@ img {
 .x-icon-img {
     width: 20px;
     filter: invert(1);
-    transition: filter 0.3s ease;
+    transition: filter 0.4s ease;
 }
 
 body.light-theme .x-icon-img {
@@ -424,11 +425,6 @@ body.light-theme .x-icon-img {
     position: absolute;
     top: 50%;
     left: 50%;
-}
-
-.slider-btn:hover {
-    /* background-color: rgba(255, 255, 255, 0.6); */
-    /* transition: background-color 0.4 ease; */
 }
 
 #prev-btn {
@@ -644,6 +640,7 @@ body.light-theme .x-icon-img {
     display: flex;
     background-color: rgb(var(--footer-rgb));
     padding: 50px;
+    transition: all 0.4s ease;
 }
 
 #footer .inner {
@@ -732,7 +729,6 @@ body.light-theme .x-icon-img {
     .menu-btn.active {
         transform: translateX(300px);
         background-color: rgb(var(--slide-menu-bg-rgb),0.9);
-        /* transition: all 0.4s ease; */
     }
 
     .menu-btn.active:hover {
@@ -778,9 +774,9 @@ body.light-theme .x-icon-img {
 
     .theme-switch-wrapper {
         position: absolute;
-        right: 70px; /* ハンバーガーメニュー(左上配置なら調整が必要)の横あたり */
+        right: 0;
         top: 0;
-        min-height: 80px; /* ヘッダーの高さに合わせる */
+        min-height: 80px;
     }
 
 
