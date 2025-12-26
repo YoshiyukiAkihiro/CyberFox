@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             loader.classList.add('loaded')
-        }, 2000);
+        }, 800);
     });
 
     // --------スクロールフェードイン---------------------------------------------
