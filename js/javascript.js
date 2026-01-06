@@ -5,8 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             loader.classList.add('loaded')
-        }, 800);
+        }, 8000);
     });
+
+    // スポンサーロゴのリスト
+
+    const sponsorLogos = [
+        "images/quantumbyte.webp",
+        "images/voltedge.webp",
+        "images/neurogear.webp"
+    ];
+
+    const sponsorImgElement = document.getElementById('loading-sponsor-img');
+    let sponsorIndex = 0;
+
+    // 3秒ごとに画像を切り替え
+    const sponsorInterval = setInterval(() => {
+        sponsorIndex++; //次の番号へ
+
+        if (sponsorIndex >= sponsorLogos.length) {
+            clearInterval(sponsorInterval);
+            return;
+        }
+        sponsorImgElement.src = sponsorLogos[sponsorIndex]; //画像パスの書き換え 
+    }, 3000);
+
 
     // --------スクロールフェードイン---------------------------------------------
     const options = {

@@ -169,11 +169,11 @@ img {
 .loading-logo img {
     width: 150px;
     margin-bottom: 20px;
-    animation: pulse 2s infinite;
+    /* animation: pulse 2s infinite; */
 }
 
 /* 下のバーのアニメーション */
-.loading-bar {
+/* .loading-bar {
     width: 0%;
     height: 3px;
     background-color: var(--loading-bar);
@@ -190,6 +190,45 @@ img {
 @keyframes loading {
     0% { width: 0%; }
     100% { width: 100%; }
+} */
+
+.loading-sponsors {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.sponsor-text {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+    font-family: 'Teko',sans-serif;
+}
+
+.sponsor-img-container {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor-img-container img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    animation: logoFade 3s infinite;
+}
+
+@keyframes logoFade {
+    0% { opacity: 0; transform: scale(0.9); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
 }
 
 /* ----------------------------------------------------------------------------
